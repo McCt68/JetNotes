@@ -2,7 +2,8 @@ package eu.example.jetnotes.data
 
 import eu.example.jetnotes.model.Note
 
-// We Instantiate this dataclass when we call NotesScreen in MainActivity
+// This is just some dummy data - to show how we could load notes from a source
+// We Instantiate this dataclass when we call NotesScreen in MainActivity - not used atm
 // Kinda simulation we are loading the list of notes from here
 class NotesDataSource {
 

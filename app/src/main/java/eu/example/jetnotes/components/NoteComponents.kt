@@ -16,7 +16,8 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 
 // customized EditText Composable function
-@OptIn(ExperimentalComposeUiApi::class)
+// @OptIn(ExperimentalComposeUiApi::class)
+@ExperimentalComposeUiApi
 @Composable
 fun NoteInputText(modifier: Modifier = Modifier, 
                   text: String,
@@ -26,16 +27,18 @@ fun NoteInputText(modifier: Modifier = Modifier,
                   onImeAction: () -> Unit = {}
 ){
 	val keyboardController = LocalSoftwareKeyboardController.current
+
 	TextField(
 		value = text,
 		onValueChange = onTextChange,
 		colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent),
 		maxLines = maxLine,
 		label = { Text(text = label)},
-		keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
+		keyboardOptions = KeyboardOptions.Default.copy(
+			imeAction = ImeAction.Done),
 		keyboardActions = KeyboardActions(onDone = {
 			onImeAction()
-			keyboardController?.hide() // hide keyboard, when press done
+			keyboardController?.hide()
 		}),
 		modifier = modifier
 	)
