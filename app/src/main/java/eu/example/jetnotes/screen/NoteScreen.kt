@@ -34,7 +34,7 @@ import eu.example.jetnotes.data.NotesDataSource
 import eu.example.jetnotes.model.Note
 import java.time.format.DateTimeFormatter
 
-// Using this function in MainActivity
+// Using this function in NotesApp
 // Parameters
 @ExperimentalComposeUiApi
 @Composable
