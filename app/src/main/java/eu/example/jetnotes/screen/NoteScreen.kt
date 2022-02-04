@@ -32,10 +32,11 @@ import eu.example.jetnotes.components.NoteButton
 import eu.example.jetnotes.components.NoteInputText
 import eu.example.jetnotes.data.NotesDataSource
 import eu.example.jetnotes.model.Note
+import eu.example.jetnotes.util.formatDate
 import java.time.format.DateTimeFormatter
 
 // Using this function in NotesApp
-// Parameters
+// Parameters a list of notes + lambda for add, and remove note
 @ExperimentalComposeUiApi
 @Composable
 fun NoteScreen(
@@ -144,8 +145,9 @@ fun NoteRow(modifier: Modifier = Modifier,
 				text = note.description,
 				style = MaterialTheme.typography.subtitle1)
 
+			// Commented out in video 140 ??
 			Text(
-				text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")),
+				text = formatDate(note.entryDate.time),
 				style = MaterialTheme.typography.caption)
 			
 		}
